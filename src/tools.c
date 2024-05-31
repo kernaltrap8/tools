@@ -1,3 +1,8 @@
+// tools Copyright (C) 2024 kernaltrap8
+// This program comes with ABSOLUTELY NO WARRANTY
+// This is free software, and you are welcome to redistribute it
+// under certain conditions
+
 #include <stdio.h>
 #include <stdlib.h>
 #include <string.h>
@@ -8,6 +13,7 @@
   "GNU GPLv3.\n'r' or 'randstring'\n    prints a random string using the "     \
   "characters from the ascii table with the length of 32 chars\n'c' or "       \
   "'countlength'\n    counts the length of a string, passed from stdin\n"
+#define VERSION "0.2"
 
 void randstring(void) {
   int length = 32;
@@ -38,8 +44,11 @@ int main(int argc, char *argv[]) {
     printf("No parameters provied.\ntools Copyright (C) 2024 kernaltrap8\n"
            "This program is licensed under the GNU GPLv3.\n");
   }
-  if (!strcmp(argv[1], "--help")) {
+  if (!strcmp(argv[1], "-h") || !strcmp(argv[1], "--help")) {
     printf("%s", help);
+  }
+  if (!strcmp(argv[1], "-v") || !strcmp(argv[1], "--version")) {
+    printf("tools v%s", VERSION);
   }
   if (!strcmp(argv[1], "randstring") || !strcmp(argv[1], "r")) {
     randstring();
